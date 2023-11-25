@@ -1,0 +1,28 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/colors.scss';
+
+.upperFooter {
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 81px;
+
+  .menu {
+    width: 40%;
+
+    .lists {
+      @include flexed;
+      font-size: 18px;
+    }
+  }
+}
+
+.footer {
+  color: $gray;
+  @include flexed;
+
+  .icons {
+    @include flexed;
+    gap: 16px;
+  }
+}
