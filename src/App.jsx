@@ -1,17 +1,44 @@
-import Banner from "./components/Banner/Banner";
-import Categories from "./components/Categories/Categories";
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
-import Product from "./components/Product/Product";
+import Table from "./components/Table/index";
+import Pagination from "./components/Pagination/index";
+import useTable from "./hooks.js";
 
 function App() {
+  const { currentPage, nextPage, previousPage } = useTable();
+  console.log(currentPage);
   return (
     <>
-      <Header />
-      <Banner />
-      <Categories />
-      <Product />
-      <Footer />
+      <Table>
+        <Table.Thead>
+          <Table.Tr>
+            <Table.Th>Header</Table.Th>
+            <Table.Th>Header</Table.Th>
+          </Table.Tr>
+        </Table.Thead>
+        <Table.Tbody>
+          <Table.Tr>
+            <Table.Td>Data</Table.Td>
+            <Table.Td>Data</Table.Td>
+          </Table.Tr>
+          <Table.Tr>
+            <Table.Td>Data</Table.Td>
+            <Table.Td>Data</Table.Td>
+          </Table.Tr>
+        </Table.Tbody>
+        <Table.Tfoot>
+          <Table.Tr>
+            <Table.Td>Footer</Table.Td>
+            <Table.Td>Footer</Table.Td>
+          </Table.Tr>
+        </Table.Tfoot>
+      </Table>
+      <Pagination>
+        <Pagination.Left
+          disabled={currentPage === 1}
+          handleClick={previousPage}
+        />
+        <Pagination.List count={5} current={currentPage} />
+        <Pagination.Right handleClick={nextPage} />
+      </Pagination>
     </>
   );
 }
