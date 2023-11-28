@@ -4,7 +4,7 @@ import useTable from "./hooks.js";
 
 function App() {
   const { currentPage, nextPage, previousPage } = useTable();
-  console.log(currentPage);
+  const maxCount = 5;
   return (
     <>
       <Table>
@@ -36,8 +36,11 @@ function App() {
           disabled={currentPage === 1}
           handleClick={previousPage}
         />
-        <Pagination.List count={5} current={currentPage} />
-        <Pagination.Right handleClick={nextPage} />
+        <Pagination.List count={maxCount} current={currentPage} />
+        <Pagination.Right
+          disabled={currentPage === maxCount}
+          handleClick={nextPage}
+        />
       </Pagination>
     </>
   );

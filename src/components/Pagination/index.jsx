@@ -9,8 +9,8 @@ Pagination.Left = ({ handleClick, disabled }) => (
     <FaChevronLeft />
   </button>
 );
-Pagination.Right = ({ handleClick }) => (
-  <button onClick={handleClick}>
+Pagination.Right = ({ handleClick, disabled }) => (
+  <button disabled={disabled} onClick={handleClick}>
     <FaChevronRight />
   </button>
 );
